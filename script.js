@@ -23,7 +23,8 @@ for(let i = 0; i < gridSquares; i++){
         gridRow.classList.add('grid-row');
 
         gridRow.addEventListener('mouseenter', (e) => {
-           e.target.style = 'background: #EA4335; border: 2px solid blue';
+            let newColor = Math.round(Math.random() * 200);
+            e.target.style = `background:rgb(25, ${newColor}, ${newColor}); border: 2px solid blue`;
         });
 
         gridRow.addEventListener('mouseleave', (e) => {
