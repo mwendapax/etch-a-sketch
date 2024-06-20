@@ -1,15 +1,19 @@
+const navbar = document.querySelector('#navbar');
 const container = document.querySelector('#container');
-const gridBtn = document.querySelector('#set-grid');
 const newGrid = document.querySelector('#set-grid');
 const dimensions = document.querySelector('.dimensions');
 
 
 
+
 let gridRow, gridColumn, gridSquares = 16;
+
+
 
 for(let i = 0; i < gridSquares; i++){
     gridColumn = document.createElement('div');
     gridColumn.classList.add('grid-column');
+
 
     dimensions.textContent = `Dimensions: ${gridSquares} * ${gridSquares}`;
     container.appendChild(gridColumn);
@@ -24,7 +28,7 @@ for(let i = 0; i < gridSquares; i++){
 
         gridRow.addEventListener('mouseleave', (e) => {
             e.target.style.border = '1px solid #FBBC04';
-        })
+        });
 
         gridColumn.appendChild(gridRow);
     }
@@ -34,6 +38,7 @@ function newGridCords() {
     if(gridSquares) {
         container.innerHTML = '';
         dimensions.textContent = `Dimensions: ${gridSquares} * ${gridSquares}`;
+
         
         for(let i = 0; i < gridSquares; i++){
             gridColumn = document.createElement('div');
@@ -43,7 +48,7 @@ function newGridCords() {
     
             for (let i = 0; i < gridSquares; i++){
                  gridRow = document.createElement('div');
-                gridRow.classList.add('grid-row');
+                 gridRow.classList.add('grid-row');
 
                 gridRow.addEventListener('mouseenter', (e) => {
                    e.target.style = 'background: #EA4335; border: 2px solid blue';
@@ -51,13 +56,20 @@ function newGridCords() {
 
                 gridRow.addEventListener('mouseleave', (e) => {
                     e.target.style.border = '1px solid #FBBC04';
+                });
+
+                gridRow.addEventListener('mouseover', (e) => {
+                    e.target.style.opacity = '-10%';
                 })
+
 
                 gridColumn.appendChild(gridRow);
             }
         }
+        
     }
 }
+
 
 newGrid.addEventListener('click', () => {
     gridSquares = Number(prompt('Enter new grid Dimensions', 'maximum 100'));
@@ -68,6 +80,5 @@ newGrid.addEventListener('click', () => {
         newGridCords();
     }
 });
-
 
 

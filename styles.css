@@ -36,7 +36,6 @@
 
 #container {
     display: flex;
-    
     width: 700px;
     height: 700px;
 }
@@ -49,12 +48,11 @@
 }
 
 
-.grid-row {
+.grid-row{
     display: flex;
     flex: 1;
     background-color: #FBBC04;
     border: 1px solid white;
     border-radius: 4%;
 }
-
 
